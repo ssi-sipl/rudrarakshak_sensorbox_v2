@@ -5,7 +5,7 @@ import sys
 # CONFIGURATION
 USER = "rudra"
 WORKING_DIR = "/home/rudra/rudrarakshak_sensorbox_v2"
-BINARY_NAME = "radar_ultrasonic"
+BINARY_NAME = "radar_ultrasonic_v2"
 BINARY_PATH = os.path.join(WORKING_DIR, BINARY_NAME)
 SERVICE_NAME = "radar.service"
 SERVICE_PATH = f"/etc/systemd/system/{SERVICE_NAME}"
@@ -27,10 +27,12 @@ After=network.target
 [Service]
 User={USER}
 WorkingDirectory={WORKING_DIR}
-ExecStart={BINARY_PATH} >> {LOG_FILE} 2>&1
+ExecStart={BINARY_PATH}
 Restart=always
 RestartSec=5
 Environment=PYTHONUNBUFFERED=1
+StandardOutput=append:{LOG_FILE}
+StandardError=append:{LOG_FILE}
 
 [Install]
 WantedBy=multi-user.target
@@ -57,7 +59,7 @@ def main():
     print("\n✅ Setup complete. Your binary will now auto-start on reboot.")
     print(f"🚀 Binary path: {BINARY_PATH}")
     print(f"📜 Service file: {SERVICE_PATH}")
-    print(f"🪵 Log file: {LOG_FILE}")
+    print(f"🪵 Log file: {LOG_FILE} (check this for output)")
 
 if __name__ == "__main__":
     main()
