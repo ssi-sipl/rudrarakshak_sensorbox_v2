@@ -4,7 +4,7 @@ import sys
 
 # CONFIGURATION
 USER = "rudra"
-WORKING_DIR = "/home/rudra/radar_v2"
+WORKING_DIR = "/home/rudra/rudrarakshak_sensorbox_v2"
 BINARY_NAME = "radar_ultrasonic"
 BINARY_PATH = os.path.join(WORKING_DIR, BINARY_NAME)
 SERVICE_NAME = "radar.service"
