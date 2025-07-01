@@ -1,0 +1,6 @@
+{
+    "cameraID": "RD101",
+    "SERVER_URL": "http://192.168.0.5:3300/analyticEvent",
+    "VALID_RANGE_MIN": 220,
+    "VALID_RANGE_MAX": 780
+}
